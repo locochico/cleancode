@@ -93,10 +93,6 @@ public class FitnessExampleTest {
         pageData = testPage.getData();
     }
 
-    private boolean includeSuiteSetup(boolean b) {
-        return b;
-    }
-
     private String removeMagicNumber(String expectedResult) {
         return expectedResult.replaceAll("[-]*\\d+", "");
     }
@@ -107,14 +103,12 @@ public class FitnessExampleTest {
 
     @Test
     public void testableHtml() throws Exception {
-        String expectedResult = removeMagicNumber(expectedResultForTestCase);
-        String testableHtml = new FitnessExample().testableHtml(pageData, includeSuiteSetup(true));
-        testableHtml = removeMagicNumber(testableHtml);
-        assertThat(testableHtml, is(expectedResult));
-
-        testableHtml = new FitnessExample().testableHtml(pageData, includeSuiteSetup(false));
-        testableHtml = removeMagicNumber(testableHtml);
-        expectedResultForNonTestCase = removeMagicNumber(expectedResultForNonTestCase);
-        assertThat(testableHtml, is(expectedResultForNonTestCase));
+        generateHtmlAndAssert(true, expectedResultForTestCase);
+        generateHtmlAndAssert(false, expectedResultForNonTestCase);
+    }
+    
+    private void generateHtmlAndAssert(boolean includeSuiteSetup, String expectedResult ) throws Exception{
+    	String testableHtml = new FitnessExample().testableHtml(pageData, includeSuiteSetup);
+    	assertThat(removeMagicNumber(testableHtml), is(removeMagicNumber(expectedResult)));
     }
 }
