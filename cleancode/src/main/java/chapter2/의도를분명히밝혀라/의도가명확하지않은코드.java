@@ -7,10 +7,6 @@ public class 의도가명확하지않은코드 {
 
 	private List<int[]> theList = new ArrayList<int[]>();
 
-	public 의도가명확하지않은코드() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public List<int[]> getThem() {
 		List<int[]> list1 = new ArrayList<int[]>();
 		for (int[] x : theList)
