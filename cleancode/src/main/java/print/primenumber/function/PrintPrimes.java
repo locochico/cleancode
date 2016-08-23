@@ -2,11 +2,11 @@ package print.primenumber.function;
 
 public class PrintPrimes {
 	public static void main(String[] args) {
-		PrimePrinterHelper.invoke();
+		new PrimePrinterHelper().invoke();
 	}
 
 	private static class PrimePrinterHelper {
-		private static void invoke() {
+		private void invoke() {
 			final int numberOfPrimes = 1000;
 			final int linesPerPage = 50;
 			final int columns = 4;
