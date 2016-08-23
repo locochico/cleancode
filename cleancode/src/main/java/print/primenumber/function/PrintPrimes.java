@@ -53,7 +53,7 @@ public class PrintPrimes {
 			printNumbers(primes, numberOfPrimes);
 		}
 
-		private void printNumbers(int primes[], int numberOfPrimes) {
+		private void printNumbers(int[] primes, int numberOfPrimes) {
 			pagenumber = 1;
 			pageoffset = 1;
 			while (pageoffset <= numberOfPrimes) {
