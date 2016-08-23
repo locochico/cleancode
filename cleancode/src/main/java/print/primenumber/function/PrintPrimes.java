@@ -8,7 +8,8 @@ public class PrintPrimes {
 	public static void main(String[] args) {
 		PrimeGenerator primeGenerator = new PrimeGenerator();
 		int[] primes = primeGenerator.generatorPrimes(numberOfPrimes);
-		new NumberPrinter(linesPerPage, columns).print(primes, numberOfPrimes);		
+		NumberPrinter numberPrinter = new NumberPrinter(linesPerPage, columns);
+		numberPrinter.print(primes, numberOfPrimes);
 	}
 }
 

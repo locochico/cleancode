@@ -9,7 +9,7 @@ public class NumberPrinter {
 		this.columns = columns;
 	}
 	
-	public void print(int[] numbers, int numberOfPrimes) {
+	public void print(int[] primes, int numberOfPrimes) {
 		int pagenumber = 1;
 		int pageoffset = 1;
 		while (pageoffset <= numberOfPrimes) {
@@ -18,7 +18,7 @@ public class NumberPrinter {
 			for (int rowoffset = pageoffset; rowoffset < pageoffset + linesPerPage; rowoffset++) {
 				for (int column = 0; column < columns; column++)
 					if (rowoffset + column * linesPerPage <= numberOfPrimes)
-						System.out.format("%10d", numbers[rowoffset + column * linesPerPage]);
+						System.out.format("%10d", primes[rowoffset + column * linesPerPage]);
 				System.out.println("");
 			}
 			System.out.println("\f");
