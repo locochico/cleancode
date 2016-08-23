@@ -8,7 +8,7 @@ public class PrintPrimes {
 	public static void main(String[] args) {
 		PrimePrinterHelper primePrinterHelper = new PrimePrinterHelper();
 		int[] primes = primePrinterHelper.invoke();
-		primePrinterHelper.printNumbers(primes, numberOfPrimes, linesPerPage, columns);
+		new NumberPrinter(linesPerPage, columns).invoke(primes, numberOfPrimes);		
 	}
 }
 
@@ -52,9 +52,5 @@ class PrimePrinterHelper {
 			primes[primeIndex] = candidate;
 		}
 		return primes;
-	}
-	
-	public void printNumbers(int[] numbers, int numberOfPrimes, int linesPerPage, int columns) {
-		new NumberPrinter(linesPerPage, columns).invoke(numbers, numberOfPrimes);
 	}
 }
