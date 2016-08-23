@@ -1,11 +1,14 @@
 package print.primenumber.function;
 
 public class PrintPrimes {
+	
+	static final int numberOfPrimes = 1000;
+	
 	public static void main(String[] args) {
 		new PrimePrinterHelper().invoke();
 	}
-
-	private static class PrimePrinterHelper {
+}
+	class PrimePrinterHelper {
 		private final int numberOfPrimes = 1000;
 		private int linesPerPage = 50;
 		private int columns = 4;
@@ -23,7 +26,7 @@ public class PrintPrimes {
 		private int n;
 		private int multiples[] = new int[ordmax + 1];
 		
-		private void invoke() {
+		public int[] invoke() {
 			candidate = 1;
 			primeIndex = 1;
 			primes[1] = 2;
@@ -50,7 +53,7 @@ public class PrintPrimes {
 				primeIndex = primeIndex + 1;
 				primes[primeIndex] = candidate;
 			}
-			printNumbers(primes, numberOfPrimes);
+			return primes;
 		}
 
 		private void printNumbers(int[] numbers, int numberOfPrimes) {
@@ -71,4 +74,3 @@ public class PrintPrimes {
 			}
 		}
 	}
-}
